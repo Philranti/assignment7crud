@@ -8,5 +8,7 @@ import java.util.Set;
 
 @Repository
 public interface CreateNewGameRepository extends SoccerGameMainRepository<NewGame, String> {
+    NewGame retrieveByGameName(String newGame);
+
     Set<NewGame> getAll();
 }

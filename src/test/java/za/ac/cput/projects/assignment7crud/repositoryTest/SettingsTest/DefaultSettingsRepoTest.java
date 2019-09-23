@@ -40,7 +40,7 @@ public class DefaultSettingsRepoTest {
         Assert.assertSame(created, this.settings);
     }
 
-    @Test
+   /* @Test
     public void read() {
         DefaultSettings savedDefaultSettings = getSavedDefaultSettings();
 
@@ -48,19 +48,19 @@ public class DefaultSettingsRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedDefaultSettings, read);
-    }
+    }*/
 
     private DefaultSettings getsavedDefaultSettingsTransfer() {
         Set<DefaultSettings> savedDefaultSettingsTransfer = this.repository.getAll();
         return savedDefaultSettingsTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         DefaultSettings savedDefaultSettings = getSavedDefaultSettings();
         this.repository.delete(savedDefaultSettings.getLanguage());
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

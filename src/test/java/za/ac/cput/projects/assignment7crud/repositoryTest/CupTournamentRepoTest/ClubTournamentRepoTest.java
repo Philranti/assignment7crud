@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.projects.assignment7crud.domains.CupsTournament.ClubTournaments;
 import za.ac.cput.projects.assignment7crud.factory.CupTournamentFactory.ClubTournamentFactory;
 import za.ac.cput.projects.assignment7crud.factoryTest.CupTournamentTest.ClubTournamentTest;
@@ -17,6 +18,7 @@ import java.util.Set;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClubTournamentRepoTest {
 
+    @Autowired
     private ClubTournaments club;
     private ClubTournamentRepository repository;
 
@@ -66,10 +68,10 @@ public class ClubTournamentRepoTest {
         String clubName = "CAF Champions League";
         ClubTournaments course = new ClubTournaments.Builder().copy(getSavedClubTournaments()).clubTournament(clubName).build();
         System.out.println("In update, about_to_update = " + course);
-       // ClubTournaments updated = this.repository.update(course);
-        System.out.println("In update, updated = " + course.getClubTournamentName());
+        ClubTournaments updated = this.repository.create(course);
+        System.out.println("In update, updated = " + updated);
         c_getAll();
-        Assert.assertSame(clubName, course.getClubTournamentName());
+        Assert.assertEquals(clubName, updated.getClubTournamentName());
 
     }
 

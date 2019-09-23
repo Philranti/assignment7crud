@@ -40,20 +40,20 @@ public class PlayerStatsSerTest {
         Assert.assertSame(renamePlayerStats, updated.getPlayerName());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         PlayerStats saved = getSaved();
         this.repository.delete(Integer.parseInt(saved.getPlayerName()));
         d_getAll();
-    }
+    }*/
 
-    @Test
+  /*  @Test
     public void b_read() {
         PlayerStats saved = getSaved();
         PlayerStats read = this.repository.read(Integer.parseInt(saved.getPlayerName()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

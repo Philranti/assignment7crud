@@ -37,7 +37,7 @@ public class SoccerCareerRepoTest {
         Assert.assertSame(created, this.career);
     }
 
-    @Test
+   /* @Test
     public void read() {
         SoccerCareerLeague savedSoccerCareerLeague = getSavedSoccerCareerLeague();
 
@@ -45,19 +45,19 @@ public class SoccerCareerRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedSoccerCareerLeague, read);
-    }
+    }*/
 
     private SoccerCareerLeague getsavedSoccerCareerLeagueTransfer() {
         Set<SoccerCareerLeague> savedSoccerCareerLeagueTransfer = this.repository.getAll();
         return savedSoccerCareerLeagueTransfer.iterator().next();
     }
 
-    @Test
+  /*  @Test
     public void delete() {
         SoccerCareerLeague savedSoccerCareerLeague = getSavedSoccerCareerLeague();
         this.repository.delete(String.valueOf(Integer.parseInt(savedSoccerCareerLeague.getTeamCareerChosen())));
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

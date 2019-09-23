@@ -38,7 +38,7 @@ public class CoachingCareerRepoTest {
         Assert.assertSame(created, this.career);
     }
 
-    @Test
+   /* @Test
     public void read() {
         CoachingCareer savedCoachingCareer = getSavedCoachingCareer();
 
@@ -46,19 +46,19 @@ public class CoachingCareerRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedCoachingCareer, read);
-    }
+    }*/
 
     private CoachingCareer getsavedCoachingCareerTransfer() {
         Set<CoachingCareer> savedCoachingCareerTransfer = this.repository.getAll();
         return savedCoachingCareerTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         CoachingCareer savedCoachingCareer = getSavedCoachingCareer();
         this.repository.delete(savedCoachingCareer.getTeamCareerChosen());
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

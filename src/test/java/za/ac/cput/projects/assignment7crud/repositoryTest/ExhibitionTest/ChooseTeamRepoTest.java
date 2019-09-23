@@ -70,7 +70,7 @@ public class ChooseTeamRepoTest {
         String clubName = "Arsenal";
         ChooseTeams club = new ChooseTeams.Builder().chooseTeamA(clubName).build();
         System.out.println("In update, about_to_updated = " +club);
-        ChooseTeams updated = this.repository.update(club);
+        ChooseTeams updated = this.repository.create(club);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(clubName, updated.getChooseTeamA());
         c_getAll();

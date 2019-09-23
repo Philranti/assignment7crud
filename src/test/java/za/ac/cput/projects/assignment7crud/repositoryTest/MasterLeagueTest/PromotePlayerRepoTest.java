@@ -40,7 +40,7 @@ public class PromotePlayerRepoTest {
         Assert.assertSame(created, this.promotePlayers);
     }
 
-    @Test
+  /*  @Test
     public void read() {
         PromotePlayers savedPromotePlayers = getSavedPromotePlayers();
 
@@ -48,19 +48,19 @@ public class PromotePlayerRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedPromotePlayers, read);
-    }
+    }*/
 
     private PromotePlayers getsavedpromotePlayersTransfer() {
         Set<PromotePlayers> savedpromotePlayersTransfer = this.repository.getAll();
         return savedpromotePlayersTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         PromotePlayers savedPromotePlayers = getSavedPromotePlayers();
         this.repository.delete(savedPromotePlayers.getPromotedPlayer());
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

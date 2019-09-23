@@ -48,13 +48,13 @@ public class LeagueStatSerTest {
         d_getAll();
     }
 
-    @Test
+  /*  @Test
     public void b_read() {
         LeagueStats saved = getSaved();
         LeagueStats read = this.repository.read(Integer.parseInt(saved.getMostPoints()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

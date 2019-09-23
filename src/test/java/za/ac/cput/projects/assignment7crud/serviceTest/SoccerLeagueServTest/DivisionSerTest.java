@@ -41,20 +41,20 @@ public class DivisionSerTest {
         Assert.assertSame(renameDivisions, updated.getDivisionPlayed());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         Divisions saved = getSaved();
         this.repository.delete(saved.getDivisionPlayed());
         d_getAll();
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void b_read() {
         Divisions saved = getSaved();
         Divisions read = this.repository.read(Integer.parseInt(saved.getDivisionPlayed()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

@@ -40,7 +40,7 @@ public class TransfersRepoTest {
         Assert.assertSame(created, this.transfers);
     }
 
-    @Test
+  /*  @Test
     public void read() {
         Transfers savedTransfers = getSavedTransfers();
 
@@ -48,19 +48,19 @@ public class TransfersRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedTransfers, read);
-    }
+    }*/
 
     private Transfers getsavedLoanTransfer() {
         Set<Transfers> savedTransfers = this.repository.getAll();
         return savedTransfers.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         Transfers savedTransfers = getSavedTransfers();
         this.repository.delete(savedTransfers.getPlayersPosition());
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.projects.assignment7crud.domains.CupsTournament.InternationalTournaments;
 import za.ac.cput.projects.assignment7crud.factory.CupTournamentFactory.InternationalTournamentFactory;
 import za.ac.cput.projects.assignment7crud.factoryTest.CupTournamentTest.InternationalTournamentTest;
@@ -15,11 +16,11 @@ import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InternationalTournamentRepoTest {
-    private InternationalTournaments international;
-    
 
+    
+    @Autowired
     private InternationalRepository repository;
-    private InternationalTournamentTest internationalTournamentTest;
+    private InternationalTournaments international;
 
 
     private InternationalTournaments getSavedInternationalTournaments() {
@@ -33,10 +34,6 @@ public class InternationalTournamentRepoTest {
         this.international =  InternationalTournamentFactory.internationalTournaments("AFCON ", 2 ,50,"Cameroon");
     }
 
-    private InternationalTournaments getSavedCourse() {
-        Set<InternationalTournaments> savedInternationals = this.repository.getAll();
-        return savedInternationals.iterator().next();
-    }
 
     @Test
     public void a_create() {
@@ -50,7 +47,7 @@ public class InternationalTournamentRepoTest {
     public void b_read() {
         InternationalTournaments savedInternationalTournaments = getSavedInternationalTournaments();
         System.out.println("In read,  tournamentId = "+ savedInternationalTournaments.getInterTournamentName());
-     //   InternationalTournaments readId = this.repository.read(savedInternationalTournaments.getInterTournamentName());
+        InternationalTournaments readId = this.repository.read(savedInternationalTournaments.getInterTournamentName());
         System.out.println("In read, read = " + savedInternationalTournaments.toString());
         c_getAll();
         Assert.assertNotNull(savedInternationalTournaments);
@@ -68,9 +65,9 @@ public class InternationalTournamentRepoTest {
     @Test
     public void d_update() {
         String internationalName = "EUROS";
-        InternationalTournaments international = new InternationalTournaments.Builder().interTournamentName(internationalName).build();
-        System.out.println("In update, about_to_updated = " +international);
-        InternationalTournaments updated = this.repository.update(international);
+        InternationalTournaments updatedInternationals = new InternationalTournaments.Builder().copy(getSavedInternationalTournaments()).interTournamentName(internationalName).build();
+        System.out.println("In update, about_to_updated = " +updatedInternationals);
+        InternationalTournaments updated = this.repository.create(updatedInternationals);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(internationalName, updated.getInterTournamentName());
         c_getAll();

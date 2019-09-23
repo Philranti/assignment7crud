@@ -12,7 +12,8 @@ public class ClubTournaments {
     private int teamsParticipating;
     private String clubWinner;
 
-
+    private ClubTournaments() {
+    }
 
     private ClubTournaments(Builder builder) {
         this.clubTournamentName = builder.clubTournamentName;

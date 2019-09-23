@@ -41,20 +41,20 @@ public class SoccerCareerSerTest {
         Assert.assertSame(renameSoccerCareerLeague, updated.getTeamCareerChosen());
     }
 
-    @Test
+  /*  @Test
     public void e_delete() {
         SoccerCareerLeague saved = getSaved();
         this.repository.delete(Integer.parseInt(saved.getTeamCareerChosen()));
         d_getAll();
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void b_read() {
         SoccerCareerLeague saved = getSaved();
         SoccerCareerLeague read = this.repository.read(Integer.parseInt(saved.getTeamCareerChosen()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

@@ -36,7 +36,6 @@ public class ClubTournamentService implements ClubTournamentServiceInterface {
 
     }
 
-
     @Override
     public Set<ClubTournaments> getAll() {
         return repository.getAll();

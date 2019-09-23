@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.projects.assignment7crud.domains.ExhibitionMatches.ChooseTeams;
 import za.ac.cput.projects.assignment7crud.factory.ExhibitionFactory.ChooseTeamFactory;
 import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.ChooseTeamRepositories;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ChooseTeamSerTest {
-    
+    @Autowired
     private ChooseTeamRepositories repository;
     private ChooseTeams international;
 
@@ -54,8 +55,8 @@ public class ChooseTeamSerTest {
     @Test
     public void b_read() {
         ChooseTeams saved = getSaved();
-        ChooseTeams read = this.repository.read(saved.getChooseTeamA());
-        System.out.println("In read, read = "+ read);
+      ChooseTeams read = this.repository.read(saved.getChooseTeamA());
+        System.out.println("In read, read = " + read);
         Assert.assertSame(read, saved);
     }
 

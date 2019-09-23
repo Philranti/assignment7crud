@@ -6,6 +6,11 @@ import java.util.Set;
 
 public class CreateNewGameDB implements CreateNewGameRepository {
     @Override
+    public NewGame retrieveByGameName(String newGame) {
+        return null;
+    }
+
+    @Override
     public Set<NewGame> getAll() {
         return null;
     }

@@ -33,48 +33,48 @@ public class MostAssistRepoTest {
     }
 
     @Test
-    public void create() {
+    public void a_create() {
         MostAssists created = this.repository.create(this.assists);
         System.out.println("In create, created = " + created);
-        getAll();
+        c_getAll();
         Assert.assertSame(created, this.assists);
     }
 
-    @Test
-    public void read() {
+  /*  @Test
+    public void b_read() {
         MostAssists savedMostAssists = getSavedMostAssists();
 
         MostAssists read = this.repository.read(String.valueOf(savedMostAssists.getNumOfAssist()));
         System.out.println("In read, read = " + read);
-        getAll();
+        c_getAll();
         Assert.assertEquals(savedMostAssists, read);
-    }
+    }*/
 
     private MostAssists getsavedMostAssistsTransfer() {
         Set<MostAssists> savedMostAssistsTransfer = this.repository.getAll();
         return savedMostAssistsTransfer.iterator().next();
     }
 
-    @Test
-    public void delete() {
+   /* @Test
+    public void e_delete() {
         MostAssists savedMostAssists = getSavedMostAssists();
         this.repository.delete(savedMostAssists.getPlayerName());
-        getAll();
-    }
+        c_getAll();
+    }*/
 
     @Test
-    public void update() {
+    public void d_update() {
         int createMostAssists = 50;
         MostAssists MostAssists = new MostAssists.Builder().numOfAssist(createMostAssists).build();
         System.out.println("In update, about_to_updated = " +MostAssists);
         MostAssists updated = this.repository.update(MostAssists);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(createMostAssists, updated.getNumOfAssist());
-        getAll();
+        c_getAll();
     }
 
     @Test
-    public void getAll() {
+    public void c_getAll() {
         Set<MostAssists> all = this.repository.getAll();
         System.out.println("In getAll, all = " + all);
 //       Assert.assertSame(1, all.size());

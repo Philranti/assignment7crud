@@ -38,7 +38,7 @@ public class CupTournamentRepoTest {
         Assert.assertSame(created, this.tournaments);
     }
 
-    @Test
+/*    @Test
     public void read() {
         CupTournaments savedCupTournaments = getSavedCupTournaments();
 
@@ -46,19 +46,19 @@ public class CupTournamentRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedCupTournaments, read);
-    }
+    }*/
 
     private CupTournaments getsavedCupTournamentsTransfer() {
         Set<CupTournaments> savedCupTournamentsTransfer = this.repository.getAll();
         return savedCupTournamentsTransfer.iterator().next();
     }
 
-    @Test
+  /*  @Test
     public void delete() {
         CupTournaments savedCupTournaments = getSavedCupTournaments();
         this.repository.delete(savedCupTournaments.getNameOfTournament());
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

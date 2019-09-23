@@ -40,20 +40,20 @@ public class MostCleansheetSerTest {
         Assert.assertSame(mostCleanSheets, updated.getNumOfCleanSheets());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         MostCleanSheets saved = getSaved();
         this.repository.delete(saved.getNumOfCleanSheets());
         d_getAll();
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void b_read() {
         MostCleanSheets saved = getSaved();
         MostCleanSheets read = this.repository.read(saved.getNumOfCleanSheets());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

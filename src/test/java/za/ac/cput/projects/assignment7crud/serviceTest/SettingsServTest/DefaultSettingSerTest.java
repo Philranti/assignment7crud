@@ -44,20 +44,20 @@ public class DefaultSettingSerTest {
         Assert.assertSame(languageSettings, updated.getLanguage());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         DefaultSettings saved = getSaved();
         this.repository.delete(Integer.parseInt(saved.getLanguage()));
         d_getAll();
-    }
+    }*/
 
-    @Test
+  /*  @Test
     public void b_read() {
         DefaultSettings saved = getSaved();
         DefaultSettings read = this.repository.read(Integer.parseInt(saved.getLanguage()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

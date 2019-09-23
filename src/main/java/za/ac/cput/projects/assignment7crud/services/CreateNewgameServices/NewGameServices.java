@@ -6,6 +6,8 @@ import za.ac.cput.projects.assignment7crud.services.MainService;
 import java.util.Set;
 
 public interface NewGameServices extends MainService <NewGame, String> {
-    NewGame retrieveByDesc(String newGame);
+
+    NewGame retrieveByDesc(String newDesc);
+
     Set<NewGame> getAll();
 }

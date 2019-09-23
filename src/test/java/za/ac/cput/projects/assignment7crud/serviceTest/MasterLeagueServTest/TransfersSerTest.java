@@ -45,20 +45,20 @@ public class TransfersSerTest {
         Assert.assertSame(playerAge, updated.getAge());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         Transfers saved = getSaved();
         this.repository.delete(String.valueOf(saved.getAge()));
         d_getAll();
-    }
+    }*/
 
-    @Test
+  /*  @Test
     public void b_read() {
         Transfers saved = getSaved();
         Transfers read = this.repository.read(String.valueOf(saved.getAge()));
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

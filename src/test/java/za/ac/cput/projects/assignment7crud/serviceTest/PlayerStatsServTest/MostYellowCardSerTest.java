@@ -47,13 +47,13 @@ public class MostYellowCardSerTest {
         d_getAll();
     }
 
-    @Test
+   /* @Test
     public void b_read() {
         MostYellowCards saved = getSaved();
         MostYellowCards read = this.repository.read(saved.getNumOfYellowCards());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

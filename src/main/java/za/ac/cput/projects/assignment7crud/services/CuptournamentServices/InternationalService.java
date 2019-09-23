@@ -36,7 +36,6 @@ public class InternationalService implements InternationalTournamentServiceInter
 
     }
 
-
     @Override
     public Set<InternationalTournaments> getAll() {
         return repository.getAll();

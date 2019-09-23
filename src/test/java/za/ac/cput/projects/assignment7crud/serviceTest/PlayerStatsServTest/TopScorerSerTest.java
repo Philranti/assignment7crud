@@ -41,20 +41,20 @@ public class TopScorerSerTest {
         Assert.assertSame(numOfGoalScored, updated.getNumOfGoalsScored());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         TopGoalScorers saved = getSaved();
         this.repository.delete(saved.getNumOfGoalsScored());
         d_getAll();
-    }
+    }*/
 
-    @Test
+  /*  @Test
     public void b_read() {
         TopGoalScorers saved = getSaved();
         TopGoalScorers read = this.repository.read(saved.getNumOfGoalsScored());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

@@ -40,7 +40,7 @@ public class MostCleanSheetRepoTest {
         Assert.assertSame(created, this.cleanSheet);
     }
 
-    @Test
+   /* @Test
     public void read() {
         MostCleanSheets savedMostCleanSheets = getSavedMostCleanSheets();
 
@@ -48,19 +48,19 @@ public class MostCleanSheetRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedMostCleanSheets, read);
-    }
+    }*/
 
     private MostCleanSheets getsavedMostCleanSheetsTransfer() {
         Set<MostCleanSheets> savedMostCleanSheetsTransfer = this.repository.getAll();
         return savedMostCleanSheetsTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         MostCleanSheets savedMostCleanSheets = getSavedMostCleanSheets();
         this.repository.delete(String.valueOf(savedMostCleanSheets.getNumOfCleanSheets()));
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

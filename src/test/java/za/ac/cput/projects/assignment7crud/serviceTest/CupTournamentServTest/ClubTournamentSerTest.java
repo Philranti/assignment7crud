@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.projects.assignment7crud.domains.CupsTournament.ClubTournaments;
 import za.ac.cput.projects.assignment7crud.factory.CupTournamentFactory.ClubTournamentFactory;
 import za.ac.cput.projects.assignment7crud.repositories.cuptournament_repository.ClubTournamentRepositories;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ClubTournamentSerTest {
-
+    @Autowired
     private ClubTournamentRepositories repository;
     private ClubTournaments clubTournament;
 

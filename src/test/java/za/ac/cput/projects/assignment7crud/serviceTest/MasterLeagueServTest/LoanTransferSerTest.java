@@ -51,13 +51,13 @@ public class LoanTransferSerTest {
         d_getAll();
     }
 
-    @Test
+   /* @Test
     public void b_read() {
         LoanTransfers saved = getSaved();
         LoanTransfers read = this.repository.read(saved.getLoanedPlayer());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

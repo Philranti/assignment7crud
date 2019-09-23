@@ -28,6 +28,14 @@ public class NewGame {
         return deleteGameName;
     }
 
+    public void setCreateName(String createName) {
+        this.createName = createName;
+    }
+
+    public void setDeleteGameName(String deleteGameName) {
+        this.deleteGameName = deleteGameName;
+    }
+
     public static class Builder{
 
         private String createName;

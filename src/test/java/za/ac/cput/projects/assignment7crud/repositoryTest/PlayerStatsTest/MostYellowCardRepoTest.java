@@ -41,7 +41,7 @@ public class MostYellowCardRepoTest {
         Assert.assertSame(created, this.yellowCards);
     }
 
-    @Test
+   /* @Test
     public void read() {
         MostYellowCards savedMostYellowCards = getSavedMostYellowCards();
 
@@ -49,19 +49,19 @@ public class MostYellowCardRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedMostYellowCards, read);
-    }
+    }*/
 
     private MostYellowCards getsavedMostYellowCardsTransfer() {
         Set<MostYellowCards> savedMostYellowCardsTransfer = this.repository.getAll();
         return savedMostYellowCardsTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         MostYellowCards savedMostYellowCards = getSavedMostYellowCards();
         this.repository.delete(String.valueOf(savedMostYellowCards.getNumOfYellowCards()));
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {

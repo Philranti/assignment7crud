@@ -51,13 +51,13 @@ public class TransferListedSerTest {
         d_getAll();
     }
 
-    @Test
+  /*  @Test
     public void b_read() {
         TransferListed saved = getSaved();
         TransferListed read = this.repository.read(saved.getTransferedPlayer());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

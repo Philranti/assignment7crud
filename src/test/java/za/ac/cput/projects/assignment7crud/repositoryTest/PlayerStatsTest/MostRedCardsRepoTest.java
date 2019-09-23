@@ -40,7 +40,7 @@ public class MostRedCardsRepoTest {
         Assert.assertSame(created, this.reds);
     }
 
-    @Test
+/*    @Test
     public void read() {
         MostRedCards savedMostRedCards = getSavedMostRedCards();
 
@@ -48,19 +48,19 @@ public class MostRedCardsRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedMostRedCards, read);
-    }
+    }*/
 
     private MostRedCards getsavedMostRedCardsTransfer() {
         Set<MostRedCards> savedMostRedCardsTransfer = this.repository.getAll();
         return savedMostRedCardsTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         MostRedCards savedMostRedCards = getSavedMostRedCards();
         this.repository.delete(String.valueOf(savedMostRedCards.getNumOfRedCards()));
         getAll();
-    }
+    } */
 
     @Test
     public void update() {

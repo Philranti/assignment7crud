@@ -21,36 +21,31 @@ public class InternationalRepositories implements InternationalRepository {
         return repository;
     }
 
-
+    @Override
     public InternationalTournaments create(InternationalTournaments internationalTournaments){
         this.internationalTournamentsSet.put(internationalTournaments.getInterTournamentName(), internationalTournaments);
         return internationalTournaments;
     }
 
-    
+    @Override
     public InternationalTournaments read(String s)
     {
         return this.internationalTournamentsSet.get(s);
     }
 
-    
-
-   
-
+    @Override
     public InternationalTournaments update(InternationalTournaments internationalTournaments){
 
         this.internationalTournamentsSet.replace(internationalTournaments.getInterTournamentName(), internationalTournaments);
         return this.internationalTournamentsSet.get(internationalTournaments.getInterTournamentName());
     }
 
-    
+    @Override
     public void delete(String s) {
-
     }
 
-
+    @Override
     public Set<InternationalTournaments> getAll(){
-
 
         Collection<InternationalTournaments> internationalTournaments = this.internationalTournamentsSet.values();
         Set<InternationalTournaments> set = new HashSet<>();

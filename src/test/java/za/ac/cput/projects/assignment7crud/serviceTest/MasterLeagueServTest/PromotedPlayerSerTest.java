@@ -51,13 +51,13 @@ public class PromotedPlayerSerTest {
         d_getAll();
     }
 
-    @Test
+   /* @Test
     public void b_read() {
         PromotePlayers saved = getSaved();
         PromotePlayers read = this.repository.read(saved.getPromotedPlayer());
         System.out.println("In read, read = "+ read);
         Assert.assertSame(read, saved);
-    }
+    }*/
 
     @Test
     public void d_getAll() {

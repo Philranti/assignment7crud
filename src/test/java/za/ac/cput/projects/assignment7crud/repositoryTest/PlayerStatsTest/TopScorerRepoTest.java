@@ -40,7 +40,7 @@ public class TopScorerRepoTest {
         Assert.assertSame(created, this.scorers);
     }
 
-    @Test
+/*    @Test
     public void read() {
         TopGoalScorers savedTopGoalScorers = getSavedTopGoalScorers();
 
@@ -48,19 +48,19 @@ public class TopScorerRepoTest {
         System.out.println("In read, read = " + read);
         getAll();
         Assert.assertEquals(savedTopGoalScorers, read);
-    }
+    }*/
 
     private TopGoalScorers getsavedTopGoalScorersTransfer() {
         Set<TopGoalScorers> savedTopGoalScorersTransfer = this.repository.getAll();
         return savedTopGoalScorersTransfer.iterator().next();
     }
 
-    @Test
+   /* @Test
     public void delete() {
         TopGoalScorers savedTopGoalScorers = getSavedTopGoalScorers();
         this.repository.delete(String.valueOf(savedTopGoalScorers.getNumOfGoalsScored()));
         getAll();
-    }
+    }*/
 
     @Test
     public void update() {
