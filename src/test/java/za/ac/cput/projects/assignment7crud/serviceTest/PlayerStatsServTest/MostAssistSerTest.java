@@ -41,12 +41,12 @@ public class MostAssistSerTest {
         Assert.assertSame(numOfAssist, updated.getNumOfAssist());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         MostAssists saved = getSaved();
         this.repository.delete(Integer.parseInt(String.valueOf(saved.getNumOfAssist())));
         d_getAll();
-    }
+    }*/
 
    /* @Test
     public void b_read() {

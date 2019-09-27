@@ -12,20 +12,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SoccerGameSecurity extends WebSecurityConfigurerAdapter {
 
-    private  String USER_ROLE = "USER";
-    private  String ADMIN_ROLE = "ADMIN";
+//    private  String USER_ROLE = "USER";
+ //   private  String ADMIN_ROLE = "ADMIN";
+
+    private static final String USER_ROLE = "USER";
+    private static final String ADMIN_ROLE = "ADMIN";
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 
         auth.inMemoryAuthentication()
                 .withUser("admin")
-                .password(encoder().encode("password"))
+                .password(encoder().encode("soccer"))
                 .roles(ADMIN_ROLE)
                 .and()
                 .withUser("user")
                 .password(encoder().encode("user"))
-                .roles(USER_ROLE);
+                .roles(USER_ROLE, ADMIN_ROLE);
 
     }
 
@@ -35,20 +38,18 @@ public class SoccerGameSecurity extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/newGame/getAll")
+                .antMatchers(HttpMethod.GET, "/soccer/getAll")
                 .hasRole(ADMIN_ROLE)
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                .formLogin();
 
     }
 
     @Bean
     public PasswordEncoder encoder(){
-            return new BCryptPasswordEncoder();
-
+        return new BCryptPasswordEncoder();
     }
-
-
 
 
 }

@@ -41,12 +41,12 @@ public class MatchesPlayedSerTest {
         Assert.assertSame(renameMatcheWon, updated.getMatchesWon());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         MatchePlayed saved = getSaved();
         this.repository.delete(String.valueOf(saved.getMatchesWon()));
         d_getAll();
-    }
+    }*/
 
    /* @Test
     public void b_read() {

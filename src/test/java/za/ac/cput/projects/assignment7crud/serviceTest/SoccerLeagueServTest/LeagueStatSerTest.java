@@ -41,12 +41,12 @@ public class LeagueStatSerTest {
         Assert.assertSame(mostPoints, updated.getMostPoints());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         LeagueStats saved = getSaved();
         this.repository.delete(saved.getMostPoints());
         d_getAll();
-    }
+    }*/
 
   /*  @Test
     public void b_read() {

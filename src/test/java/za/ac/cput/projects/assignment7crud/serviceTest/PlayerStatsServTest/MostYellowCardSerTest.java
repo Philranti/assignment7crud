@@ -40,12 +40,12 @@ public class MostYellowCardSerTest {
         Assert.assertSame(mostYellowCards, updated.getNumOfYellowCards());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         MostYellowCards saved = getSaved();
         this.repository.delete(saved.getNumOfYellowCards());
         d_getAll();
-    }
+    }*/
 
    /* @Test
     public void b_read() {

@@ -25,25 +25,15 @@ public class NewGameController  {
     private String BASE_URL = "http://localhost:8080/soccer/lookup/newGame";
 
 
+
+
     @Test
-    public void a_create() {
-
-        NewGame newGame = CreateNewGameFactory.newGame("PhillipGame", "PhilGame" );
-        newGame.setCreateName("PhillipGame");
-        ResponseEntity<NewGame> postResponse = restTemplate.postForEntity(BASE_URL + "/newGame", newGame, NewGame.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
-        System.out.println(postResponse.getBody());
-
-    }
-
-    /*@Test
     public void createNewGame() {
         ResponseEntity result = restTemplate.withBasicAuth("admin", "admin")
                 .postForEntity(BASE_URL + "/create/newGame", null, String.class);
         System.out.println(result.getBody());
         assertEquals(HttpStatus.OK, result.getStatusCode());
-    }*/
+    }
 
     @Test
     public void b_findById() {
@@ -55,13 +45,7 @@ public class NewGameController  {
     }
 
 
-    @Test
-    public void getAll() {
-        ResponseEntity<String> result = restTemplate.withBasicAuth("user", "password")
-                .getForEntity(BASE_URL + "/getAll", String.class);
-        System.out.println(result.getBody());
-        assertEquals(HttpStatus.OK, result.getStatusCode());
-    }
+
 
 
 }

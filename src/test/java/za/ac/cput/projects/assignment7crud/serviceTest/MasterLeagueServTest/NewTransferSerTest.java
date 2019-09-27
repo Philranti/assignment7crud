@@ -44,12 +44,12 @@ public class NewTransferSerTest {
         Assert.assertSame(newTransferPlayer, updated.getNewPlayerName());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         NewTransfers saved = getSaved();
         this.repository.delete(saved.getNewPlayerName());
         d_getAll();
-    }
+    }*/
 
    /* @Test
     public void b_read() {

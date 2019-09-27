@@ -44,12 +44,12 @@ public class PromotedPlayerSerTest {
         Assert.assertSame(promotedPlayer, updated.getPromotedPlayer());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         PromotePlayers saved = getSaved();
         this.repository.delete(saved.getPromotedPlayer());
         d_getAll();
-    }
+    }*/
 
    /* @Test
     public void b_read() {

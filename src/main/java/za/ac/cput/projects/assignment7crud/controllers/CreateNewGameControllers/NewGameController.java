@@ -22,7 +22,7 @@ public class NewGameController {
     @Autowired
     NewGameServiceImpl service;
 
-    @RequestMapping("/create")
+    @RequestMapping(value = {"/", "/create"})
     @ResponseBody
     public NewGame create(NewGame game){
         game = CreateNewGameFactory.newGame("Hello world", "Hello");
@@ -33,10 +33,11 @@ public class NewGameController {
     @GetMapping("/read/{gameId}")
     @ResponseBody
     public NewGame read(@PathVariable String gameId) {
-        return service.read(gameId);
+             return service.read(gameId);
+
     }
 
-    @PostMapping("/update")
+    @RequestMapping(value = {"/", "/update"})
     @ResponseBody
     public NewGame update(NewGame newGameName) {
         return service.update(newGameName);
@@ -50,7 +51,7 @@ public class NewGameController {
     }
 
 
-    @PostMapping(value = "/create/{newGame}", produces = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(value = "/create/{newGame}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity createNewGame(@PathVariable String newGame) {
         System.out.println("Entered Value: " + newGame);
         ResponseObject responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "New Game created!");

@@ -44,12 +44,12 @@ public class TransferListedSerTest {
         Assert.assertSame(transferedPlayer, updated.getTransferedPlayer());
     }
 
-    @Test
+   /* @Test
     public void e_delete() {
         TransferListed saved = getSaved();
         this.repository.delete(saved.getTransferedPlayer());
         d_getAll();
-    }
+    }*/
 
   /*  @Test
     public void b_read() {

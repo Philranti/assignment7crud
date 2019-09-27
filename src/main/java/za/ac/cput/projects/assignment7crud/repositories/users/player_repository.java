@@ -1,10 +1,14 @@
 package za.ac.cput.projects.assignment7crud.repositories.users;
 
+import org.springframework.stereotype.Repository;
+import za.ac.cput.projects.assignment7crud.domains.CreateNewGame.NewGame;
 import za.ac.cput.projects.assignment7crud.domains.users.Player;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@Repository
 public class player_repository implements playerRepository {
     private Set<Player> Players;
     private static playerRepository PlayerRepository;
@@ -51,6 +55,12 @@ public class player_repository implements playerRepository {
     public void delete(String s) {
         Player Player = read(s);
         this.Players.remove(Player);
+    }
+
+
+    @Override
+    public Set<Player> getAll() {
+        return this.PlayerRepository.getAll();
     }
 
 }
