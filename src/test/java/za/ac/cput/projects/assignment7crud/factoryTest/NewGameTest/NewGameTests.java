@@ -11,7 +11,7 @@ public class NewGameTests {
 
     @Before
     public void setUp(){
-        newGame = CreateNewGameFactory.newGame("PhillipMphelaGame", "PhilGame" );
+        newGame = CreateNewGameFactory.newGame(newGame.getGameId(), "PhillipMphelaGame", "PhilGame" );
     }
 
     @Test

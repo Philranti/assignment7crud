@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import za.ac.cput.projects.assignment7crud.domains.CreateNewGame.NewGame;
-import za.ac.cput.projects.assignment7crud.repositories.newgame_repository.CreateNewGameRepositories;
+//import za.ac.cput.projects.assignment7crud.repositories.newgame_repository.CreateNewGameRepositories;
 import za.ac.cput.projects.assignment7crud.repositories.newgame_repository.CreateNewGameRepository;
+import za.ac.cput.projects.assignment7crud.services.MainService;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -14,11 +17,13 @@ public class NewGameServiceImpl implements NewGameServices {
 
 
     @Autowired
-    private NewGameServiceImpl service = null;
+    private  NewGameServiceImpl service = null;
+
+    @Autowired
    private CreateNewGameRepository repository;
 
-    public NewGameServiceImpl() {
-        repository = CreateNewGameRepositories.getRepository();
+    private NewGameServiceImpl() {
+
     }
 
     public NewGameServiceImpl getService(){
@@ -29,34 +34,45 @@ public class NewGameServiceImpl implements NewGameServices {
         return service;
     }
 
+
+
+    @Override
+    public NewGame retrieveByDesc(String gameName) {
+        List<NewGame> newGameList = getAll();
+        for(NewGame newGame: newGameList)
+        {
+            if(newGame.getCreateName().equalsIgnoreCase(gameName))
+                return newGame;
+        }
+        return null;
+    }
+
     @Override
     public NewGame create(NewGame newGame) {
-        return this.repository.create(newGame);
+        return this.repository.save(newGame);
     }
 
     @Override
     public NewGame update(NewGame newGame) {
-        return this.repository.update(newGame);
+        return this.repository.save(newGame);
     }
 
 
     public void delete(String s) {
-        this.repository.delete(s);
+        this.repository.deleteById(s);
     }
 
     @Override
     public NewGame read(String s) {
-        return this.repository.read(s);
+        Optional<NewGame> newGame = this.repository.findById(s);
+        return newGame.orElse(null);
+
     }
 
-    @Override
-    public NewGame retrieveByDesc(String newDesc) {
-        return this.repository.retrieveByGameName(newDesc);
-    }
 
     @Override
-    public Set<NewGame> getAll() {
-        return this.repository.getAll();
+    public List<NewGame> getAll() {
+        return this.repository.findAll();
     }
 }
 

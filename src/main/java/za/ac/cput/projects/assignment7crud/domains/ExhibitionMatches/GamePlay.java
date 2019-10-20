@@ -1,25 +1,52 @@
 package za.ac.cput.projects.assignment7crud.domains.ExhibitionMatches;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class GamePlay {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "playerId",columnDefinition = "VARCHAR(100)",nullable=false)
+    private String gamePlayId;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String playerMode;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int minutesPlay;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private boolean extraTime;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private boolean penalties;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int numOfSubs;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String venueChosen;
 
     public GamePlay() {
     }
 
     private GamePlay(Builder builder) {
+        this.gamePlayId = builder.gamePlayId;
         this.playerMode = builder.playerMode;
         this.minutesPlay = builder.minutesPlay;
         this.extraTime = builder.extraTime;
         this.penalties = builder.penalties;
         this.numOfSubs = builder.numOfSubs;
         this.venueChosen = builder.venueChosen;
+    }
+
+    public String getGamePlayId() {
+        return gamePlayId;
+    }
+
+    public void setGamePlayId(String gamePlayId) {
+        this.gamePlayId = gamePlayId;
     }
 
     public String getPlayerMode() {
@@ -47,13 +74,18 @@ public class GamePlay {
     }
 
     public static class Builder{
-
+        private String gamePlayId;
         private String playerMode;
         private int minutesPlay;
         private boolean extraTime;
         private boolean penalties;
         private int numOfSubs;
         private String venueChosen;
+
+        public Builder gamePlayId(String gamePlayId){
+            this.gamePlayId = gamePlayId;
+            return this;
+        }
 
         public Builder playerMode(String playerMode) {
             this.playerMode = playerMode;
@@ -86,6 +118,7 @@ public class GamePlay {
         }
 
         public GamePlay.Builder copy(GamePlay gamePlay){
+            this.gamePlayId = gamePlay.gamePlayId;
             this.extraTime = gamePlay.extraTime;
             this.minutesPlay = gamePlay.minutesPlay;
             this.numOfSubs = gamePlay.numOfSubs;
@@ -106,7 +139,8 @@ public class GamePlay {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GamePlay gamePlay = (GamePlay) o;
-        return minutesPlay == gamePlay.minutesPlay &&
+        return gamePlayId == gamePlay.gamePlayId &&
+                minutesPlay == gamePlay.minutesPlay &&
                 extraTime == gamePlay.extraTime &&
                 penalties == gamePlay.penalties &&
                 numOfSubs == gamePlay.numOfSubs &&
@@ -116,14 +150,14 @@ public class GamePlay {
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(playerMode, minutesPlay, extraTime, penalties, numOfSubs, venueChosen);
+        return Objects.hash(gamePlayId, playerMode, minutesPlay, extraTime, penalties, numOfSubs, venueChosen);
     }
 
     @Override
     public String toString() {
         return "GamePlay{" +
-                "playerMode='" + playerMode + '\'' +
+                "gamePlayId=" + gamePlayId +
+                ", playerMode='" + playerMode + '\'' +
                 ", minutesPlay=" + minutesPlay +
                 ", extraTime=" + extraTime +
                 ", penalties=" + penalties +

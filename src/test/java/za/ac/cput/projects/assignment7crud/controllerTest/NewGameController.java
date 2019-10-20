@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.ac.cput.projects.assignment7crud.domains.CreateNewGame.NewGame;
-import za.ac.cput.projects.assignment7crud.factory.NewGameFactory.CreateNewGameFactory;
+ import za.ac.cput.projects.assignment7crud.factory.NewGameFactory.CreateNewGameFactory;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
@@ -22,7 +22,7 @@ public class NewGameController  {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String BASE_URL = "http://localhost:8080/soccer/lookup/newGame";
+    private String BASE_URL = "http://localhost:80/soccer/lookup/newGame";
 
 
 

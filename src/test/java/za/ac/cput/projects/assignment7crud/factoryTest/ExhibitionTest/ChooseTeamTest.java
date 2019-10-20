@@ -13,7 +13,7 @@ public class ChooseTeamTest extends SoccerGame {
 
     @Before
     public void setUp() {
-       teams = ChooseTeamFactory.createTeams("Barcelona", "Real Madrid");
+       teams = ChooseTeamFactory.createTeams("Liverpool","Barcelona");
 
     }
 

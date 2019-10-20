@@ -5,34 +5,34 @@ import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.projects.assignment7crud.domains.ExhibitionMatches.GamePlay;
 import za.ac.cput.projects.assignment7crud.factory.ExhibitionFactory.GamePlayFactory;
-import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.GamePlayerRepositories;
+import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.GamePlayerRepository;
 
+import java.util.List;
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GamePlaySerTest {
 
 
-    private GamePlayerRepositories repository;
+    private GamePlayerRepository repository;
     private GamePlay gamePlay;
 
     private GamePlay getSaved(){
 
-        return this.repository.getAll().iterator().next();
+        return this.repository.findAll().iterator().next();
     }
 
     @Before
     public void setUp() throws Exception {
-        this.repository = GamePlayerRepositories.getRepository();
+     //   this.repository = GamePlayerRepositories.getRepository();
         this.gamePlay = GamePlayFactory.createGamePlay("Two Player", 30, true, true, 6, "Old Trafford" );
     }
 
     @Test
     public void a_create() {
-        GamePlay created = this.repository.create(this.gamePlay);
+        GamePlay created = this.repository.save(this.gamePlay);
         System.out.println("In create, created = " + created);
         Assert.assertNotNull(created);
         Assert.assertSame(created, this.gamePlay);
@@ -43,14 +43,14 @@ public class GamePlaySerTest {
         String choosePlayMode = "One Player";
         GamePlay updated = new GamePlay.Builder().playerMode(choosePlayMode).build();
         System.out.println("In update, updated = " + updated);
-        this.repository.update(updated);
+        this.repository.save(updated);
         Assert.assertSame(choosePlayMode, updated.getPlayerMode());
     }
 
     @Test
     public void e_delete() {
         GamePlay saved = getSaved();
-        this.repository.delete(saved.getPlayerMode());
+        this.repository.deleteById(saved.getPlayerMode());
         d_getAll();
     }
 
@@ -64,7 +64,7 @@ public class GamePlaySerTest {
 
     @Test
     public void d_getAll() {
-        Set<GamePlay> GamePlay = this.repository.getAll();
+        List<GamePlay> GamePlay = this.repository.findAll();
         System.out.println("In getall, all = " + GamePlay);
     }
 }

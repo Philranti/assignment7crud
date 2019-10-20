@@ -8,9 +8,9 @@ import org.junit.runners.MethodSorters;
 import za.ac.cput.projects.assignment7crud.domains.ExhibitionMatches.GamePlay;
 import za.ac.cput.projects.assignment7crud.factory.ExhibitionFactory.GamePlayFactory;
 import za.ac.cput.projects.assignment7crud.factoryTest.ExhibitionTest.GamePlayTest;
-import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.GamePlayerRepositories;
 import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.GamePlayerRepository;
 
+import java.util.List;
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -22,13 +22,13 @@ public class GamePlayRepoTest {
 
 
     private GamePlay getSavedGamePlay() {
-        Set<GamePlay> savedGamePlay = this.repository.getAll();
+        List<GamePlay> savedGamePlay = this.repository.findAll();
         return savedGamePlay.iterator().next();
     }
 
     @Before
     public void setUp() throws Exception {
-        this.repository = GamePlayerRepositories.getRepository();
+      //  this.repository = GamePlayerRepositories.getRepository();
        this.game = GamePlayFactory.createGamePlay("Two Player", 30, true, true, 6, "Old Trafford" );
     }
 
@@ -37,7 +37,7 @@ public class GamePlayRepoTest {
 
     @Test
     public void a_create() {
-        GamePlay create = this.repository.create(this.game);
+        GamePlay create = this.repository.save(this.game);
         System.out.println("In create, created = " + create);
         c_getAll();
         Assert.assertSame(create, this.game);
@@ -58,7 +58,7 @@ public class GamePlayRepoTest {
     @Test
     public void e_delete() {
         GamePlay savedGamePlay = getSavedGamePlay();
-        this.repository.delete(savedGamePlay.getPlayerMode());
+        this.repository.deleteById(savedGamePlay.getGamePlayId());
         c_getAll();
     }
 
@@ -75,7 +75,7 @@ public class GamePlayRepoTest {
 
     @Test
     public void c_getAll() {
-        Set<GamePlay> all = this.repository.getAll();
+        List<GamePlay> all = this.repository.findAll();
         System.out.println("In getAll, all = " + all);
 //       Assert.assertSame(1, all.size());
     }

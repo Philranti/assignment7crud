@@ -6,12 +6,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import za.ac.cput.projects.assignment7crud.domains.ExhibitionMatches.ChooseTeams;
-import za.ac.cput.projects.assignment7crud.domains.SoccerGame.CupTournaments;
 import za.ac.cput.projects.assignment7crud.factory.ExhibitionFactory.ChooseTeamFactory;
-import za.ac.cput.projects.assignment7crud.factoryTest.ExhibitionTest.ChooseTeamTest;
-import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.ChooseTeamRepositories;
 import za.ac.cput.projects.assignment7crud.repositories.exhibition_repository.ChooseTeamsRepository;
 
+import java.util.List;
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -23,24 +21,24 @@ public class ChooseTeamRepoTest {
 
 
     private ChooseTeams getSavedChooseTeams() {
-        Set<ChooseTeams> savedClubs = this.repository.getAll();
+        List<ChooseTeams> savedClubs = this.repository.findAll();
         return savedClubs.iterator().next();
     }
 
     @Before
     public void setUp() throws Exception {
-        this.repository = ChooseTeamRepositories.getRepository();
+       // this.repository = ChooseTeamRepositories.getRepository();
         this.teams = ChooseTeamFactory.createTeams("Barcelona", "Real Madrid");
     }
 
     private ChooseTeams getSavedClub() {
-        Set<ChooseTeams> savedChooseTeams = this.repository.getAll();
+        List<ChooseTeams> savedChooseTeams = this.repository.findAll();
         return savedChooseTeams.iterator().next();
     }
 
     @Test
     public void a_create() {
-        ChooseTeams created = this.repository.create(this.teams);
+        ChooseTeams created = this.repository.save(this.teams);
         System.out.println("In create, created = " + created);
         c_getAll();
         Assert.assertSame(created, this.teams);
@@ -61,7 +59,7 @@ public class ChooseTeamRepoTest {
     @Test
     public void e_delete() {
         ChooseTeams savedChooseTeams = getSavedChooseTeams();
-        this.repository.delete(savedChooseTeams.getChooseTeamA());
+        this.repository.deleteById(savedChooseTeams.getTeamId());
         c_getAll();
     }
 
@@ -70,7 +68,7 @@ public class ChooseTeamRepoTest {
         String clubName = "Arsenal";
         ChooseTeams club = new ChooseTeams.Builder().chooseTeamA(clubName).build();
         System.out.println("In update, about_to_updated = " +club);
-        ChooseTeams updated = this.repository.create(club);
+        ChooseTeams updated = this.repository.save(club);
         System.out.println("In update, updated = " + updated);
         Assert.assertSame(clubName, updated.getChooseTeamA());
         c_getAll();
@@ -78,7 +76,7 @@ public class ChooseTeamRepoTest {
 
     @Test
     public void c_getAll() {
-        Set<ChooseTeams> all = this.repository.getAll();
+        List<ChooseTeams> all = this.repository.findAll();
         System.out.println("In getAll, all = " + all);
 //       Assert.assertSame(1, all.size());
     }

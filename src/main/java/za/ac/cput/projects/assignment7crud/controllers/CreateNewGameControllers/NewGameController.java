@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.projects.assignment7crud.domains.CreateNewGame.NewGame;
 import za.ac.cput.projects.assignment7crud.domains.ResponseObject;
@@ -12,46 +16,50 @@ import za.ac.cput.projects.assignment7crud.factory.NewGameFactory.CreateNewGameF
 import za.ac.cput.projects.assignment7crud.factory.ResponseObjFactory;
 import za.ac.cput.projects.assignment7crud.services.CreateNewgameServices.NewGameServiceImpl;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
-@RestController
-@RequestMapping("/soccer/lookup/newGame")
+@Controller
+@RequestMapping("/")
 public class NewGameController {
 
 
     @Autowired
     NewGameServiceImpl service;
 
-    @RequestMapping(value = {"/", "/create"})
-    @ResponseBody
-    public NewGame create(NewGame game){
-        game = CreateNewGameFactory.newGame("Hello world", "Hello");
 
-        return service.create(game);
+
+   // @PostMapping(value = "/create",consumes = MediaType.APPLICATION_JSON_VALUE)
+   /* @PutMapping(value = "/create/{id}/{newGame}/{savedGame}")
+    public NewGame create(@PathVariable String id, @PathVariable String newGame, @PathVariable String savedGame){
+     //   game = CreateNewGameFactory.newGame("Hello world", "Hello");
+        return this.service.create(CreateNewGameFactory.newGame(id, newGame, savedGame));
     }
 
-    @GetMapping("/read/{gameId}")
-    @ResponseBody
+    @GetMapping(value = "/read/{gameId}")
     public NewGame read(@PathVariable String gameId) {
-             return service.read(gameId);
+             return this.service.read(gameId);
 
     }
 
-    @RequestMapping(value = {"/", "/update"})
-    @ResponseBody
-    public NewGame update(NewGame newGameName) {
-        return service.update(newGameName);
+    @PutMapping(value = "/update/newGame")
+    public NewGame update(@RequestBody NewGame newGameName){
+        return this.service.update(newGameName);
     }
 
-    @GetMapping("/delete/{gameId}")
-    @ResponseBody
+    @DeleteMapping(value = "/delete/{gameId}")
     public void delete(@PathVariable String gameId) {
-        service.delete(gameId);
+        this.service.delete(gameId);
 
     }
 
+    @GetMapping(value = "/getAll")
+    public List<NewGame> getAll(){
+        return this.service.getAll();
+    }
 
-        @PostMapping(value = "/create/{newGame}", produces = MediaType.APPLICATION_JSON_VALUE)
+   /*     @PostMapping(value = "/create/{newGame}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity createNewGame(@PathVariable String newGame) {
         System.out.println("Entered Value: " + newGame);
         ResponseObject responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "New Game created!");
@@ -72,12 +80,8 @@ public class NewGameController {
         return ResponseEntity.ok(responseObj);
     }
 
-    @GetMapping(value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity getAll(){
-        ResponseObject responseObj = ResponseObjFactory.buildGenericResponseObj(HttpStatus.OK.toString(), "Success");
-        Set<NewGame> newGames = service.getAll();
-        responseObj.setResponse(newGames);
-        return ResponseEntity.ok(responseObj);
-    }
+*/
+
+
 
 }

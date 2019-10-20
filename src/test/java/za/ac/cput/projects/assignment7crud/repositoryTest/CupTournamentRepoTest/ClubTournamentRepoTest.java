@@ -1,4 +1,4 @@
-package za.ac.cput.projects.assignment7crud.repositoryTest.CupTournamentRepoTest;
+/*package za.ac.cput.projects.assignment7crud.repositoryTest.CupTournamentRepoTest;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -6,7 +6,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.projects.assignment7crud.domains.CupsTournament.ClubTournaments;
+//import za.ac.cput.projects.assignment7crud.domains.CupsTournament.ClubTournaments;
 import za.ac.cput.projects.assignment7crud.factory.CupTournamentFactory.ClubTournamentFactory;
 import za.ac.cput.projects.assignment7crud.factoryTest.CupTournamentTest.ClubTournamentTest;
 import za.ac.cput.projects.assignment7crud.repositories.cuptournament_repository.ClubTournamentDB;
@@ -84,3 +84,4 @@ public class ClubTournamentRepoTest {
     
 
 }
+*/
